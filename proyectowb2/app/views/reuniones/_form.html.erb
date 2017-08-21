@@ -1,0 +1,42 @@
+<%= form_with(model: reunione, local: true) do |form| %>
+  <% if reunione.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reunione.errors.count, "error") %> prohibited this reunione from being saved:</h2>
+
+      <ul>
+      <% reunione.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :titulo %>
+    <%= form.text_field :titulo, id: :reunione_titulo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :diayhora %>
+    <%= form.text_field :diayhora, id: :reunione_diayhora %>
+  </div>
+
+  <div class="field">
+    <%= form.label :usuario %>
+    <%= form.text_field :usuario, id: :reunione_usuario %>
+  </div>
+
+  <div class="field">
+    <%= form.label :virtual %>
+    <%= form.text_field :virtual, id: :reunione_virtual %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cliente %>
+    <%= form.text_field :cliente, id: :reunione_cliente %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

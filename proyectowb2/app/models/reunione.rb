@@ -1,0 +1,2 @@
+class Reunione < ApplicationRecord
+end

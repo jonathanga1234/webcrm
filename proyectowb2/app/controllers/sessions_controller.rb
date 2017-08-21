@@ -5,16 +5,18 @@ require 'digest/md5'
   def create
 
 
-byebug
     # ver si la secion existe en base de datos
 
 nombre=session_params[:nombre]
 
+clave=session_params[:clave]
+
+
 clave =Digest::MD5.hexdigest(clave)
 
-User.where(nombre:nombre,clave:clave).first
+user=User.where(nombre:nombre,clave:clave).first
 
-if User
+if user
 
 
 #generar token
@@ -22,12 +24,12 @@ token =Digest::MD5.hexdigest(nombre)
 
 #crear seccion#
 
-session =session.new(token:token)
+session =Session.new(token:token)
 
-seccion.user=user
+session.user=user
 
-if seccion.save
-render "token:#{token}", status: :created
+if session.save
+render json:"token:#{token}".to_json, status: :created
    
 
    end

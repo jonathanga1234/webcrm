@@ -10,14 +10,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170820041832) do
+ActiveRecord::Schema.define(version: 20170821194726) do
+
+  create_table "clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "nombre"
+    t.string "cedula"
+    t.string "pagina"
+    t.string "dirrecion"
+    t.string "telefono"
+    t.string "sector"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contactos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "cliente"
+    t.string "nombre"
+    t.string "apellidos"
+    t.string "correo"
+    t.string "numero"
+    t.string "puesto"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reuniones", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "titulo"
+    t.string "diayhora"
+    t.string "usuario"
+    t.string "virtual"
+    t.string "cliente"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "sessions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.bigint "users_id"
+    t.bigint "user_id"
     t.string "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_sessions_on_users_id"
+    t.index ["user_id"], name: "index_sessions_on_users_id"
+  end
+
+  create_table "tickets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "titulo"
+    t.string "detalle"
+    t.string "quien_reporto"
+    t.string "cliente"
+    t.string "estado"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -28,5 +70,5 @@ ActiveRecord::Schema.define(version: 20170820041832) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "sessions", "users", column: "users_id"
+  add_foreign_key "sessions", "users"
 end

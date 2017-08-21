@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @reunione.titulo %>
+</p>
+
+<p>
+  <strong>Diayhora:</strong>
+  <%= @reunione.diayhora %>
+</p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @reunione.usuario %>
+</p>
+
+<p>
+  <strong>Virtual:</strong>
+  <%= @reunione.virtual %>
+</p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @reunione.cliente %>
+</p>
+
+<%= link_to 'Edit', edit_reunione_path(@reunione) %> |
+<%= link_to 'Back', reuniones_path %>
