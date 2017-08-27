@@ -20,7 +20,21 @@ class TicketsController < ApplicationController
           
 
     ticket.save
+
+
+        render(json: ticket,status: 201 ,location: ticket)
+
   end
+
+
+  
+
+  def show
+
+
+ticket = Ticket.find(params[:id])
+render json: ticket,status: 200
+end
 
   # PATCH/PUT /tickets/1
   # PATCH/PUT /tickets/1.json

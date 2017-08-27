@@ -2,6 +2,11 @@ class ClientesController < ApplicationController
 
 
 
+  def index
+   
+    all_contacto = Cliente.all
+    render(json: all_contacto.to_json)
+  end
 
 
 
@@ -18,9 +23,23 @@ class ClientesController < ApplicationController
      client.dirrecion = params[:dirrecion]
       client.telefono = params[:telefono]
      
-  client.sector = params[:sector]
+     client.sector = params[:sector]
     client.save
+
+    render(json: client,status: 201 ,location: client)
   end
+
+
+
+  def show
+
+
+client = Cliente.find(params[:id])
+render json: client,status: 200
+end
+
+
+
 end
 
 

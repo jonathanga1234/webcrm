@@ -24,7 +24,21 @@ class ContactosController < ApplicationController
 
 
     contac.save
+
+    render(json: contac,status: 201 ,location: contac)
+
+
+
+
   end
+
+
+    def show
+
+
+contac = Contacto.find(params[:id])
+render json: contac,status: 200
+end
   # DELETE /contactos/1
   # DELETE /contactos/1.json
   def destroy

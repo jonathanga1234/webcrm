@@ -21,8 +21,17 @@ class ReunionesController < ApplicationController
           
 
     reunion.save
-  end
 
+
+    
+    render(json: reunion,status: 201 ,location: reunion)
+  end
+ def show
+
+
+reunion = Reunione.find(params[:id])
+render json: reunion,status: 200
+end
 
 
 
