@@ -73,6 +73,28 @@ end
 
 
 
+
+ def destroy
+
+
+  client = Cliente.find(params[:id])
+
+if client.destroy
+
+
+
+ head 204
+
+
+  else
+ 
+ head 422
+
+
+ end
+ end
+
+
 end
 
 

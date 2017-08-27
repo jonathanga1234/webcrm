@@ -44,6 +44,25 @@ reunion = Reunione.find(params[:id])
 render json: reunion,status: 200
 end
 
+ def destroy
+
+
+reunion = Reunione.find(params[:id])
+
+if reunion.destroy
+
+
+
+ head 204
+
+
+  else
+ 
+ head 422
+
+
+ end
+ end
 
 def update
 reunion = Reunione.find(params[:id])
@@ -76,16 +95,6 @@ if reunion.save()
 
 
 
-
-  # DELETE /reuniones/1
-  # DELETE /reuniones/1.json
-  def destroy
-    @reunione.destroy
-    respond_to do |format|
-      format.html { redirect_to reuniones_url, notice: 'Reunione was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

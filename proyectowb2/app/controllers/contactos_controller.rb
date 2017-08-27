@@ -80,16 +80,25 @@ render json: contac,status: 200
 end
 
 
+ def destroy
 
-  # DELETE /contactos/1
-  # DELETE /contactos/1.json
-  def destroy
-    @contacto.destroy
-    respond_to do |format|
-      format.html { redirect_to contactos_url, notice: 'Contacto was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+
+contac = Contacto.find(params[:id])
+
+if contac.destroy
+
+
+
+ head 204
+
+
+  else
+ 
+ head 422
+
+
+ end
+ end
 
   private
     # Use callbacks to share common setup or constraints between actions.

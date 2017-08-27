@@ -34,6 +34,29 @@ if user.save
 end
     
   end
+
+
+  
+   def destroy
+
+
+user = User.find(params[:id])
+
+if user.destroy
+
+
+
+ head 204
+
+
+  else
+ 
+ head 422
+
+
+ end
+ end
+
 def update
 user = User.find(params[:id])
 
