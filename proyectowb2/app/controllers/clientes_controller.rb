@@ -24,13 +24,46 @@ class ClientesController < ApplicationController
       client.telefono = params[:telefono]
      
      client.sector = params[:sector]
-    client.save
+    
+
+if client.save
+  
 
     render(json: client,status: 201 ,location: client)
+  else
+
+  render(json: client.errors,status: 422 )
+
+end
   end
 
 
+def update
+client = Cliente.find(params[:id])
 
+
+    client.nombre = params[:nombre] ? params[:nombre] : client.nombre
+    client.cedula = params[:cedula] ? params[:cedula] : client.cedula
+    client.pagina = params[:pagina] ? params[:pagina] : client.pagina
+
+     client.dirrecion = params[:dirrecion] ? params[:dirrecion] : client.dirrecion
+      client.telefono = params[:telefono] ? params[:telefono] : client.telefono
+     
+     client.sector = params[:sector] ? params[:sector] : client.sector
+
+
+
+if client.save()
+
+
+
+  render(json: client,status: 201 )
+  else
+
+ render(json: client.errors,status: 422 )
+    end
+
+  end
   def show
 
 

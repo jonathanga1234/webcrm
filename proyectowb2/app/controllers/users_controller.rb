@@ -16,20 +16,46 @@ class UsersController < ApplicationController
 
     user.nombre = params[:nombre]
 
-
-
-    #  clave =Digest::MD5.hexdigest(params[:clave])
-
-
-
-    user.clave =params[:clave]
+   user.clave =params[:clave]
     user.tipo = params[:tipo]
 
-    user.save
+
+
+
+
+if user.save
+  
 
     render(json: user,status: 201 ,location: user)
-  end
+  else
 
+  render(json: user.errors,status: 422 )
+
+end
+    
+  end
+def update
+user = User.find(params[:id])
+
+
+    user.nombre = params[:nombre] ? params[:nombre] : user.nombre
+
+   user.clave =params[:clave] ? params[:clave] : user.clave
+    user.tipo = params[:tipo] ? params[:tipo] : user.tipo
+
+
+
+if user.save()
+
+
+
+  render(json: user,status: 201 )
+  else
+
+ render(json: user.errors,status: 422 )
+    end
+
+  end
 
 
   def show

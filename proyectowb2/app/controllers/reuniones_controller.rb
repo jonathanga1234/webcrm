@@ -23,8 +23,19 @@ class ReunionesController < ApplicationController
     reunion.save
 
 
-    
+    if reunion.save
+  
+
+ 
     render(json: reunion,status: 201 ,location: reunion)
+  else
+
+  render(json: reunion.errors,status: 422 )
+
+end
+
+
+    
   end
  def show
 
@@ -34,20 +45,37 @@ render json: reunion,status: 200
 end
 
 
+def update
+reunion = Reunione.find(params[:id])
 
-  # PATCH/PUT /reuniones/1
-  # PATCH/PUT /reuniones/1.json
-  def update
-    respond_to do |format|
-      if @reunione.update(reunione_params)
-        format.html { redirect_to @reunione, notice: 'Reunione was successfully updated.' }
-        format.json { render :show, status: :ok, location: @reunione }
-      else
-        format.html { render :edit }
-        format.json { render json: @reunione.errors, status: :unprocessable_entity }
-      end
+
+
+      reunion.titulo  = params[:titulo] ? params[:nombre] : reunion.titulo
+    reunion.diayhora  = params[:diayhora] ? params[:diayhora] : reunion.diayhora
+    reunion.usuario  = params[:usuario] ? params[:usuario] : reunion.usuario
+        reunion.virtual   = params[:virtual] ? params[:virtual] : reunion.virtual
+            reunion.cliente   = params[:cliente]
+
+
+
+if reunion.save()
+
+
+
+  render(json: reunion,status: 201 )
+  else
+
+ render(json: reunion.errors,status: 422 )
     end
+
   end
+
+
+
+
+
+
+
 
   # DELETE /reuniones/1
   # DELETE /reuniones/1.json

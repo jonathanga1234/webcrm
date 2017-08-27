@@ -23,14 +23,53 @@ class ContactosController < ApplicationController
              contac.puesto   = params[:puesto]
 
 
-    contac.save
+   if contac.save
 
     render(json: contac,status: 201 ,location: contac)
 
+else
 
+  render(json: contac.errors,status: 422 )
 
 
   end
+
+
+  end
+
+
+def update
+contac = Contacto.find(params[:id])
+
+contac.cliente  = params[:cliente] ? params[:cliente] : contac.cliente
+    contac.nombre = params[:nombre] ? params[:nombre] : contac.nombre
+    contac.apellidos = params[:apellidos] ? params[:nombre] : contac.apellidos
+        contac.correo  = params[:correo] ? params[:correo] : contac.correo
+            contac.numero  = params[:numero] ? params[:numero] : contac.numero
+
+             contac.puesto   = params[:puesto] ? params[:puesto] : contac.puesto
+
+
+     
+ 
+
+
+
+if contac.save()
+
+
+
+  render(json: contac,status: 201 )
+  else
+
+ render(json: contac.errors,status: 422 )
+    end
+
+  end
+
+
+
+
 
 
     def show
@@ -39,6 +78,9 @@ class ContactosController < ApplicationController
 contac = Contacto.find(params[:id])
 render json: contac,status: 200
 end
+
+
+
   # DELETE /contactos/1
   # DELETE /contactos/1.json
   def destroy
