@@ -6,75 +6,75 @@ class tickets extends CI_Controller {
 
 
 
-public function login()
-		{
-		$this->load->view('login/index.php');
-		}
-	public function index()
-	{
+    public function login()
+    {
+      $this->load->view('login/index.php');
+  }
+  public function index()
+  {
 
-		$this->load->view('usuarios/Admin.php');
-	}
-
-public function savetickets()
-		{
-
-
+      $this->load->view('usuarios/Admin.php');
+  }
+///guardar savetickets
+  public function savetickets()
+  {
 
 
-		$titulo = $this->input->post('titulo');
-		$detalle = $this->input->post('detalle');
-	
-		$quien_reporto = $this->input->post('quien_reporto');
-		$cliente = $this->input->post('cliente');
-		$estado = $this->input->post('estado');
 
 
-		$Cliente = array(
+      $titulo = $this->input->post('titulo');
+      $detalle = $this->input->post('detalle');
+      
+      $quien_reporto = $this->input->post('quien_reporto');
+      $cliente = $this->input->post('cliente');
+      $estado = $this->input->post('estado');
 
- 
 
-			'titulo' => $titulo,
-			'quien_reporto' => $quien_reporto,
-			'quien_reporto' => $quien_reporto,
-		
-			'cliente' => $cliente,
-			'estado' => $estado
-		);
+      $Cliente = array(
+
+       
+
+         'titulo' => $titulo,
+         'quien_reporto' => $quien_reporto,
+         'quien_reporto' => $quien_reporto,
+         
+         'cliente' => $cliente,
+         'estado' => $estado
+         );
 
 
 
       //url contra la que atacamos
-            $ch = curl_init("http://localhost:3000/tickets");
+      $ch = curl_init("http://localhost:3000/tickets");
             //a true, obtendremos una respuesta de la url, en otro caso, 
             //true si es correcto, false si no lo es
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             //establecemos el verbo http que queremos utilizar para la petición
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+      curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
             //enviamos el array data
-            curl_setopt($ch, CURLOPT_POSTFIELDS,$Cliente);
+      curl_setopt($ch, CURLOPT_POSTFIELDS,$Cliente);
             //obtenemos la respuesta
-            $response = curl_exec($ch);
+      $response = curl_exec($ch);
             // Se cierra el recurso CURL y se liberan los recursos del sistema
-            curl_close($ch);
-                                                             if($response==null) {
-             
-echo("datos creado incorecto");
-                            $this->load->view('tikets/tickets.php');
+      curl_close($ch);
+      if($response==null) {
+       
+        echo("datos creado incorecto");
+        $this->load->view('tikets/tickets.php');
 
-       }else{
+    }else{
 
-echo("datos creado correcto");
+        echo("datos creado correcto");
 
-               $this->load->view('usuarios/Admin.php');
-            }  
-
-
-
-			}
+        $this->load->view('usuarios/Admin.php');
+    }  
 
 
 
+}
+
+
+///modificar
 
 
 
@@ -91,102 +91,102 @@ public function Modifcar(){
 
 
 
-            $titulo = $this->input->post('titulo');
+    $titulo = $this->input->post('titulo');
 
 
 
-                if($titulo==""){
+    if($titulo==""){
 
 
 
-            $titulo=null;
+        $titulo=null;
 
-        }
+    }
 
-        $detalle = $this->input->post('detalle');
-
-
-
-                if($detalle==""){
+    $detalle = $this->input->post('detalle');
 
 
 
-            $detalle=null;
+    if($detalle==""){
 
-        }
+
+
+        $detalle=null;
+
+    }
 
     
-        $quien_reporto = $this->input->post('quien_reporto');
+    $quien_reporto = $this->input->post('quien_reporto');
 
-                   if($quien_reporto==""){
-
-
-
-            $quien_reporto=null;
-
-        }
-
-        $cliente = $this->input->post('cliente');
-
-                           if($cliente==""){
+    if($quien_reporto==""){
 
 
 
-            $cliente=null;
+        $quien_reporto=null;
 
-        }
+    }
 
+    $cliente = $this->input->post('cliente');
 
-        $estado = $this->input->post('estado');
-
-
-                        if($estado==""){
+    if($cliente==""){
 
 
 
-            $estado=null;
+        $cliente=null;
 
-        }
-             $Cliente = array(
+    }
 
- 
 
-            'titulo' => $titulo,
-            'quien_reporto' => $quien_reporto,
-            'quien_reporto' => $quien_reporto,
+    $estado = $this->input->post('estado');
+
+
+    if($estado==""){
+
+
+
+        $estado=null;
+
+    }
+    $Cliente = array(
+
+       
+
+        'titulo' => $titulo,
+        'quien_reporto' => $quien_reporto,
+        'quien_reporto' => $quien_reporto,
         
-            'cliente' => $cliente,
-            'estado' => $estado
+        'cliente' => $cliente,
+        'estado' => $estado
         );
 
 
 
-   
+    
             //url contra la que atacamos
-            $ch = curl_init("http://localhost:3000/tickets/".$id);
+    $ch = curl_init("http://localhost:3000/tickets/".$id);
             //a true, obtendremos una respuesta de la url, en otro caso, 
             //true si es correcto, false si no lo es
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             //establecemos el verbo http que queremos utilizar para la petición
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
             //enviamos el array data
-            curl_setopt($ch, CURLOPT_POSTFIELDS,http_build_query($Cliente));
+    curl_setopt($ch, CURLOPT_POSTFIELDS,http_build_query($Cliente));
             //obtenemos la respuesta
-            $response = curl_exec($ch);
+    $response = curl_exec($ch);
             // Se cierra el recurso CURL y se liberan los recursos del sistema
-            curl_close($ch);
-                                                                      if($response==null) {
-             
-echo("datos modificado incorecto");
-                                $this->load->view('tikets/Modificar.php');
+    curl_close($ch);
+    if($response==null) {
+       
+        echo("datos modificado incorecto");
+        $this->load->view('tikets/Modificar.php');
 
 
-       }else{
+    }else{
 
-echo("datos modificado correcto");
+        echo("datos modificado correcto");
 
-               $this->load->view('usuarios/Admin.php');
-            }  
+        $this->load->view('usuarios/Admin.php');
+    }  
 
 
 
@@ -198,35 +198,37 @@ echo("datos modificado correcto");
 
 }
 
-
+///vista eliminar
 public function Eliminarticketsmostra(){
 
 
 
-		$this->load->view('tikets/Eliminartickets.php');
+  $this->load->view('tikets/Eliminartickets.php');
 
 }
 
-
+///vista crear tikets
 public function Creartiketsmostra(){
 
 
 
-		$this->load->view('tikets/tickets.php');
+  $this->load->view('tikets/tickets.php');
 
 }
+
+///vista modificar tij
 public function Modificartiketsmostra(){
 
 
 
-		$this->load->view('tikets/Modificar.php');
+  $this->load->view('tikets/Modificar.php');
 
 }
 
 
 
 
-
+///metodomostar 
 
 public function mostrar(){
 
@@ -235,73 +237,70 @@ public function mostrar(){
 
   
             //url contra la que atacamos
-            $ch = curl_init("http://localhost:3000/tickets");
+    $ch = curl_init("http://localhost:3000/tickets");
             //a true, obtendremos una respuesta de la url, en otro caso, 
             //true si es correcto, false si no lo es
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             //establecemos el verbo http que queremos utilizar para la petición
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
             //enviamos el array data
             ///curl_setopt($ch, CURLOPT_POSTFIELDS,http_build_query($data));
             //obtenemos la respuesta
-            $response = curl_exec($ch);
+    $response = curl_exec($ch);
             // Se cierra el recurso CURL y se liberan los recursos del sistema
-            curl_close($ch);
-            if(!$response) {
-                return false;
-            }else{
+    curl_close($ch);
+    if(!$response) {
+        return false;
+    }else{
                // var_dump($response);
-            }
-			///$response->result_array();
+    }
+	 $data= $response;
 
-		$json = json_encode($response);
-			$data['usuarios'] = $json;
+    print_r($response);
 
-		///$data['usuarios'] = $usuarios;
-		$this->load->view('tikets/Mostrar.php', $json);
 }
 
 
-		
+///metodo elimnar
 
-		public function Eliminartickets(){
-
-
-					$id = $this->input->post('id');
-		
-				$Cliente = array(
+public function Eliminartickets(){
 
 
-			'id' => $id,
-			
-		);
+   $id = $this->input->post('id');
+   
+   $Cliente = array(
+
+
+     'id' => $id,
+     
+     );
 
 
    
-      
+   
             //url contra la que atacamos
-            $ch = curl_init("http://localhost:3000/tickets/".$id);
+   $ch = curl_init("http://localhost:3000/tickets/".$id);
             //a true, obtendremos una respuesta de la url, en otro caso, 
             //true si es correcto, false si no lo es
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             //establecemos el verbo http que queremos utilizar para la petición
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
-        
-            $response = curl_exec($ch);
+   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+   
+   $response = curl_exec($ch);
             // Se cierra el recurso CURL y se liberan los recursos del sistema
-            curl_close($ch);
-                                                                          if($response==null) {
-             
-echo("datos eliminado incorecto");
-        $this->load->view('tikets/Eliminartickets.php');
+   curl_close($ch);
+   if($response==null) {
+       
+    echo("datos eliminado incorecto");
+    $this->load->view('tikets/Eliminartickets.php');
 
 
-       }else{
+}else{
 
-echo("datos modificado correcto");
+    echo("datos modificado correcto");
 
-               $this->load->view('usuarios/Admin.php');
-            }  
+    $this->load->view('usuarios/Admin.php');
+}  
 
-		}
+}
 }

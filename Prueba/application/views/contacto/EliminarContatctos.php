@@ -44,25 +44,25 @@
     <div id="container">
         <h1>Eliminar Contactos</h1>
         <div id="body">
-       
+         
         </div>
         <form class="form-inline" action="<?php echo site_url('Contacto/EliminarContatctos'); ?>" method="post">
 
 
- 
+           
             ID:<input name="id"  type="text" value="" required autofocus>       
 
 
-                <br>
+            <br>
 
-              
+            
 
-                <br>
+            <br>
 
             <button type="submit" class="button button-block" />Eliminar</button>
         </form>
     </div>
-    </div>
+</div>
 
 </body>
 

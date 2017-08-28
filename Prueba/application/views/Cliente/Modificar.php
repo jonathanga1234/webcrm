@@ -50,25 +50,25 @@
         <form class="form-inline" action="<?php echo site_url('Cliente/Modifcar'); ?>" method="post">
 
 
-           id : <input name="id"  type="text" value="" required autofocus>  
-          Nombre:  <input name="Nombre"  type="text" value="" > 
-          cedula:   <input type="text" name="cedula" value=""> 
-           pagina:  <input type="text" name="pagina" value="" > 
-           dirrecion:  <input type="text" name="dirrecion" value="" > 
-           telefono:  <input type="text" name="telefono" value="" > 
-           sector:  <input type="text" name="sector" value="" > 
+         id : <input name="id"  type="text" value="" required autofocus>  
+         Nombre:  <input name="Nombre"  type="text" value="" > 
+         cedula:   <input type="text" name="cedula" value=""> 
+         pagina:  <input type="text" name="pagina" value="" > 
+         dirrecion:  <input type="text" name="dirrecion" value="" > 
+         telefono:  <input type="text" name="telefono" value="" > 
+         sector:  <input type="text" name="sector" value="" > 
 
 
-                <br>
+         <br>
 
-              
+         
 
-                <br>
+         <br>
 
-            <button type="submit" class="button button-block" />Modificar</button>
-        </form>
-    </div>
-    </div>
+         <button type="submit" class="button button-block" />Modificar</button>
+     </form>
+ </div>
+</div>
 
 </body>
 

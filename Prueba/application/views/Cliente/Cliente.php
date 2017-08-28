@@ -50,25 +50,25 @@
         <form class="form-inline" action="<?php echo site_url('Cliente/saveCliente'); ?>" method="post">
 
 
- 
+           
             Nombre: <input name="Nombre"  type="text" value="" required autofocus> 
-         cedula:  <input type="text" name="cedula" value="" required autofocus> 
-           pagina: <input type="text" name="pagina" value="" required pattern="[a-zA-Z]*"required autofocus> 
+            cedula:  <input type="text" name="cedula" value="" required autofocus> 
+            pagina: <input type="text" name="pagina" value="" required pattern="[a-zA-Z]*"required autofocus> 
             dirrecion: <input type="text" name="dirrecion" value="" required pattern="[a-zA-Z]*"required autofocus> 
-          telefono: <input type="text" name="telefono" value="" required pattern="[a-zA-Z]*"required autofocus> 
-           sector:  <input type="text" name="sector" value="" required pattern="[a-zA-Z]*"required autofocus> 
+            telefono: <input type="text" name="telefono" value="" required pattern="[a-zA-Z]*"required autofocus> 
+            sector:  <input type="text" name="sector" value="" required pattern="[a-zA-Z]*"required autofocus> 
 
 
-                <br>
+            <br>
 
-              
+            
 
-                <br>
+            <br>
 
             <button type="submit" class="button button-block" />Crear</button>
         </form>
     </div>
-    </div>
+</div>
 
 </body>
 

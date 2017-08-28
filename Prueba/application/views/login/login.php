@@ -1,8 +1,8 @@
 <?php 
-  if (isset($_SESSION['user'])){ 
-   redirect('usuario');
+if (isset($_SESSION['user'])){ 
+ redirect('usuario');
 } 
- ?>
+?>
 
 <!DOCTYPE html>
 <html>
@@ -79,6 +79,6 @@
 
 
         <script src="<?php base_url();?> util/js/login/index.js"></script>
-</body>
+    </body>
 
-</html>
+    </html>

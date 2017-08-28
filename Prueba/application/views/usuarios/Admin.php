@@ -62,148 +62,148 @@
 
 
 
-                
-                    </i> <span class="network-name">Crear Cliente</span>
-                </a>
-            </li>
-            <li>
+                    
+                </i> <span class="network-name">Crear Cliente</span>
+            </a>
+        </li>
+        <li>
 
-                <a href="<?php echo site_url('Cliente/ModificarClientemostra'); ?>"class="btn btn-default btn-lg">
-                    </i> <span class="network-name">Modificar Cliente</span>
-                </a>
-            </li>
-            <li>
+            <a href="<?php echo site_url('Cliente/ModificarClientemostra'); ?>"class="btn btn-default btn-lg">
+            </i> <span class="network-name">Modificar Cliente</span>
+        </a>
+    </li>
+    <li>
 
-                <a href="<?php echo site_url('Cliente/EliminarClientemostra'); ?>" class="btn btn-default btn-lg">
-                    </i> <span class="network-name">Eliminar Cliente</span>
-                </a>
-            </li>
-
-
-              <li>
-
-                <a href="<?php echo site_url('Cliente/mostrar'); ?>" class="btn btn-default btn-lg">
-                    </i> <span class="network-name"> mostar</span>
-                </a>
-            </li>
-        </ul>
+        <a href="<?php echo site_url('Cliente/EliminarClientemostra'); ?>" class="btn btn-default btn-lg">
+        </i> <span class="network-name">Eliminar Cliente</span>
+    </a>
+</li>
 
 
-        <br>
+<li>
+
+    <a href="<?php echo site_url('Cliente/mostrar'); ?>" class="btn btn-default btn-lg">
+    </i> <span class="network-name"> mostar</span>
+</a>
+</li>
+</ul>
 
 
-
-
-        <br>
-
-        <ul class="list-inline intro-social-buttons">
-
-
-
-            <li>
-
-                <a href="<?php echo site_url('Contacto/CrearContatctosmostra'); ?>" class="btn btn-default btn-lg">
-                    </i> <span class="network-name">Crear Contatos</span>
-                </a>
-            </li>
-            <li>
-
-                <a href="<?php echo site_url('Contacto/ModificarClientemostra'); ?>" class="btn btn-default btn-lg">
-                    </i> <span class="network-name">Modificar Contatos</span>
-                </a>
-            </li>
-            <li>
-
-                <a href="<?php echo site_url('Contacto/EliminarContatctosmostra'); ?>" class="btn btn-default btn-lg">
-                    </i> <span class="network-name">Eliminar contactos</span>
-                </a>
-            </li>
-
-
-              <li>
-
-                <a href="<?php echo site_url('Contacto/mostrar'); ?>" class="btn btn-default btn-lg">
-                    </i> <span class="network-name">mostrar contactos</span>
-                </a>
-            </li>
-        </ul>
+<br>
 
 
 
 
-        <br>
-        <br>
-        <ul class="list-inline intro-social-buttons">
+<br>
+
+<ul class="list-inline intro-social-buttons">
 
 
 
-            <li>
+    <li>
 
-                <a href="<?php echo site_url('Reunion/Crearreunionesmostra'); ?>" class="btn btn-default btn-lg">
-                    </i> <span class="network-name">Crear Reunion</span>
-                </a>
-            </li>
-            <li>
+        <a href="<?php echo site_url('Contacto/CrearContatctosmostra'); ?>" class="btn btn-default btn-lg">
+        </i> <span class="network-name">Crear Contatos</span>
+    </a>
+</li>
+<li>
 
-                <a href="<?php echo site_url('Reunion/Modificarreunionesmostra'); ?>"class="btn btn-default btn-lg">
-                    </i> <span class="network-name">Modificar Reunion</span>
-                </a>
-            </li>
+    <a href="<?php echo site_url('Contacto/ModificarClientemostra'); ?>" class="btn btn-default btn-lg">
+    </i> <span class="network-name">Modificar Contatos</span>
+</a>
+</li>
+<li>
 
-                <li>
-
-                <a href="<?php echo site_url('Reunion/Eliminarreunionesmostra'); ?>"class="btn btn-default btn-lg">
-                    </i> <span class="network-name">Eliminar Reunion</span>
-                </a>
-            </li>
-
-                <li>
-
-                <a href="<?php echo site_url('Reunion/mostrar'); ?>"class="btn btn-default btn-lg">
-                    </i> <span class="network-name">Mostar Reunion</span>
-                </a>
-            </li>
-
-        </ul>
+    <a href="<?php echo site_url('Contacto/EliminarContatctosmostra'); ?>" class="btn btn-default btn-lg">
+    </i> <span class="network-name">Eliminar contactos</span>
+</a>
+</li>
 
 
+<li>
 
-        <br>
-        <br>
-
-
-       <ul class="list-inline intro-social-buttons">
+    <a href="<?php echo site_url('Contacto/mostrar'); ?>" class="btn btn-default btn-lg">
+    </i> <span class="network-name">mostrar contactos</span>
+</a>
+</li>
+</ul>
 
 
 
-            <li>
 
-                <a href="<?php echo site_url('tickets/Creartiketsmostra'); ?>" class="btn btn-default btn-lg">
-                    </i> <span class="network-name">Crear tickets</span>
-                </a>
-            </li>
-            <li>
+<br>
+<br>
+<ul class="list-inline intro-social-buttons">
 
-                <a href="<?php echo site_url('tickets/Modificartiketsmostra'); ?>"class="btn btn-default btn-lg">
-                    </i> <span class="network-name">Modificar tickets</span>
-                </a>
-            </li>
 
-                <li>
 
-                <a href="<?php echo site_url('tickets/Eliminarticketsmostra'); ?>"class="btn btn-default btn-lg">
-                    </i> <span class="network-name">Eliminar tickets</span>
-                </a>
-            </li>
+    <li>
 
-                <li>
+        <a href="<?php echo site_url('Reunion/Crearreunionesmostra'); ?>" class="btn btn-default btn-lg">
+        </i> <span class="network-name">Crear Reunion</span>
+    </a>
+</li>
+<li>
 
-                <a href="<?php echo site_url('tickets/mostrar'); ?>"class="btn btn-default btn-lg">
-                    </i> <span class="network-name">Mostar tickets</span>
-                </a>
-            </li>
+    <a href="<?php echo site_url('Reunion/Modificarreunionesmostra'); ?>"class="btn btn-default btn-lg">
+    </i> <span class="network-name">Modificar Reunion</span>
+</a>
+</li>
 
-        </ul>
+<li>
+
+    <a href="<?php echo site_url('Reunion/Eliminarreunionesmostra'); ?>"class="btn btn-default btn-lg">
+    </i> <span class="network-name">Eliminar Reunion</span>
+</a>
+</li>
+
+<li>
+
+    <a href="<?php echo site_url('Reunion/mostrar'); ?>"class="btn btn-default btn-lg">
+    </i> <span class="network-name">Mostar Reunion</span>
+</a>
+</li>
+
+</ul>
+
+
+
+<br>
+<br>
+
+
+<ul class="list-inline intro-social-buttons">
+
+
+
+    <li>
+
+        <a href="<?php echo site_url('tickets/Creartiketsmostra'); ?>" class="btn btn-default btn-lg">
+        </i> <span class="network-name">Crear tickets</span>
+    </a>
+</li>
+<li>
+
+    <a href="<?php echo site_url('tickets/Modificartiketsmostra'); ?>"class="btn btn-default btn-lg">
+    </i> <span class="network-name">Modificar tickets</span>
+</a>
+</li>
+
+<li>
+
+    <a href="<?php echo site_url('tickets/Eliminarticketsmostra'); ?>"class="btn btn-default btn-lg">
+    </i> <span class="network-name">Eliminar tickets</span>
+</a>
+</li>
+
+<li>
+
+    <a href="<?php echo site_url('tickets/mostrar'); ?>"class="btn btn-default btn-lg">
+    </i> <span class="network-name">Mostar tickets</span>
+</a>
+</li>
+
+</ul>
 
 
 

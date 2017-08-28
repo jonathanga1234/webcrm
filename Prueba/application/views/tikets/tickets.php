@@ -52,22 +52,22 @@
 
             
           titulo:  <input name="titulo"  type="text" value="" required autofocus> 
-            diayhora: <input type="text" name="diayhora" value="" required autofocus> 
-            virtual:<input type="text" name="usuario" value="" required autofocus> 
-           correo: <input type="text" name="virtual" value="" required autofocus> 
-           cliente: <input type="text" name="cliente" value="" required autofocus> 
-            
+          diayhora: <input type="text" name="diayhora" value="" required autofocus> 
+          virtual:<input type="text" name="usuario" value="" required autofocus> 
+          correo: <input type="text" name="virtual" value="" required autofocus> 
+          cliente: <input type="text" name="cliente" value="" required autofocus> 
+          
 
-                <br>
+          <br>
 
-              
+          
 
-                <br>
+          <br>
 
-            <button type="submit" class="button button-block" />Crear</button>
-        </form>
-    </div>
-    </div>
+          <button type="submit" class="button button-block" />Crear</button>
+      </form>
+  </div>
+</div>
 
 </body>
 

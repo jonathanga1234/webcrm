@@ -5,20 +5,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class cliente extends CI_Controller {
 
 
+///cargar el login
 
-
-public function login()
-		{
+	public function login()
+	{
 		$this->load->view('login/index.php');
-		}
+	}
+
+	///cargar el login
 	public function index()
 	{
 
 		$this->load->view('login/login.php');
 	}
-
-public function saveCliente()
-		{
+///guarda clientes
+	public function saveCliente()
+	{
 
 
 		$nombre = $this->input->post('Nombre');
@@ -36,53 +38,53 @@ public function saveCliente()
 			'dirrecion' => $dirrecion,
 			'telefono' => $telefono,
 			'sector' => $sector
-		);
+			);
 
 
 
       //url contra la que atacamos
-            $ch = curl_init("http://localhost:3000/clientes");
+		$ch = curl_init("http://localhost:3000/clientes");
             //a true, obtendremos una respuesta de la url, en otro caso, 
             //true si es correcto, false si no lo es
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             //establecemos el verbo http que queremos utilizar para la petición
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
             //enviamos el array data
-            curl_setopt($ch, CURLOPT_POSTFIELDS,$Cliente);
+		curl_setopt($ch, CURLOPT_POSTFIELDS,$Cliente);
             //obtenemos la respuesta
-            $response = curl_exec($ch);
+		$response = curl_exec($ch);
             // Se cierra el recurso CURL y se liberan los recursos del sistema
-            curl_close($ch);
-            if($response==null) {
-             
-echo("datos guardado incorectp");
-		$this->load->view('Cliente/Cliente.php');
+		curl_close($ch);
+		if($response==null) {
+			
+			echo("datos guardado incorectp");
+			$this->load->view('Cliente/Cliente.php');
 
-       }else{
+		}else{
 
-echo("datos guardado correcto");
+			echo("datos guardado correcto");
 
-               $this->load->view('usuarios/Admin.php');
-            }  
-
-
-
-
-			}
+			$this->load->view('usuarios/Admin.php');
+		}  
 
 
 
 
+	}
 
 
-public function Modifcar(){
+
+
+////modifica los clientes
+
+	public function Modifcar(){
 
      //datos a enviar
 
-$id = $this->input->post('id');
+		$id = $this->input->post('id');
 
-       
-	
+		
+		
 
 
 
@@ -126,7 +128,7 @@ $id = $this->input->post('id');
 
 
 
-			if($pagina==""){
+		if($pagina==""){
 
 
 
@@ -142,7 +144,7 @@ $id = $this->input->post('id');
 		$dirrecion = $this->input->post('dirrecion');
 
 
-			if($dirrecion==""){
+		if($dirrecion==""){
 
 
 
@@ -151,10 +153,10 @@ $id = $this->input->post('id');
 		}
 
 
-	
+		
 		$telefono = $this->input->post('telefono');
 
-			if($telefono==""){
+		if($telefono==""){
 
 
 
@@ -164,7 +166,7 @@ $id = $this->input->post('id');
 
 		$sector = $this->input->post('sector');
 
-	if($sector==""){
+		if($sector==""){
 
 
 
@@ -182,149 +184,150 @@ $id = $this->input->post('id');
 			'telefono' => $telefono,
 			'sector' => $sector
 
-		);
+			);
 
 
-   
+		
             //url contra la que atacamos
-            $ch = curl_init("http://localhost:3000/clientes/".$id);
+		$ch = curl_init("http://localhost:3000/clientes/".$id);
             //a true, obtendremos una respuesta de la url, en otro caso, 
             //true si es correcto, false si no lo es
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             //establecemos el verbo http que queremos utilizar para la petición
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
             //enviamos el array data
-            curl_setopt($ch, CURLOPT_POSTFIELDS,http_build_query($Cliente));
+		curl_setopt($ch, CURLOPT_POSTFIELDS,http_build_query($Cliente));
             //obtenemos la respuesta
-            $response = curl_exec($ch);
+		$response = curl_exec($ch);
             // Se cierra el recurso CURL y se liberan los recursos del sistema
-            curl_close($ch);
-                     if($response==null) {
-             
-echo("datos modificado incorecto");
-				$this->load->view('Cliente/Modificar.php');
+		curl_close($ch);
+		if($response==null) {
+			
+			echo("datos modificado incorecto");
+			$this->load->view('Cliente/Modificar.php');
 
-       }else{
+		}else{
 
-echo("datos guardado correcto");
+			echo("datos guardado correcto");
 
-               $this->load->view('usuarios/Admin.php');
-            }  
-
-
+			$this->load->view('usuarios/Admin.php');
+		}  
 
 
 
 
 
 
-}
 
 
-public function EliminarClientemostra(){
+	}
+///llama a vista a elimnar
+
+	public function EliminarClientemostra(){
 
 
 
 		$this->load->view('Cliente/EliminarCliente.php');
 
-}
+	}
+///llama a vista crear cliente
 
-
-public function CrearClientemostra(){
+	public function CrearClientemostra(){
 
 
 
 		$this->load->view('Cliente/Cliente.php');
 
-}
-public function ModificarClientemostra(){
+	}
+
+
+	////lllama a vista modificar
+	public function ModificarClientemostra(){
 
 
 
 		$this->load->view('Cliente/Modificar.php');
 
-}
+	}
 
 
 
+/////metodo mostrar
 
 
-
-public function mostrar(){
-
+	public function mostrar(){
 
 
-
-  
-            //url contra la que atacamos
-            $ch = curl_init("http://localhost:3000/clientes");
-            //a true, obtendremos una respuesta de la url, en otro caso, 
-            //true si es correcto, false si no lo es
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            //establecemos el verbo http que queremos utilizar para la petición
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-            //enviamos el array data
-            ///curl_setopt($ch, CURLOPT_POSTFIELDS,http_build_query($data));
-            //obtenemos la respuesta
-            $response = curl_exec($ch);
-            // Se cierra el recurso CURL y se liberan los recursos del sistema
-            curl_close($ch);
-            if(!$response) {
-                return false;
-            }else{
-               // var_dump($response);
-            }
-			///$response->result_array();
-
-		$json = json_encode($response);
-			$data['usuarios'] = $json;
-
-		///$data['usuarios'] = $usuarios;
-		$this->load->view('Cliente/Mostrar.php', $json);
-}
 
 
 		
+            //url contra la que atacamos
+		$ch = curl_init("http://localhost:3000/clientes");
+            //a true, obtendremos una respuesta de la url, en otro caso, 
+            //true si es correcto, false si no lo es
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            //establecemos el verbo http que queremos utilizar para la petición
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+            //enviamos el array data
+            ///curl_setopt($ch, CURLOPT_POSTFIELDS,http_build_query($data));
+            //obtenemos la respuesta
+		$response = curl_exec($ch);
+            // Se cierra el recurso CURL y se liberan los recursos del sistema
+		curl_close($ch);
+		if(!$response) {
+			return false;
+		}else{
+              
+		}
+			
+		$data= $response;
 
-		public function EliminarCliente(){
+		print_r($response);
+
+	}
 
 
-					$id = $this->input->post('id');
+	
+////metodo eliminar
+	public function EliminarCliente(){
+
+
+		$id = $this->input->post('id');
 		
 		$Cliente = array(
 
 
 			'id' => $id,
 			
-		);
+			);
 
 
-   
-      
+		
+		
             //url contra la que atacamos
-            $ch = curl_init("http://localhost:3000/clientes/".$id);
+		$ch = curl_init("http://localhost:3000/clientes/".$id);
             //a true, obtendremos una respuesta de la url, en otro caso, 
             //true si es correcto, false si no lo es
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             //establecemos el verbo http que queremos utilizar para la petición
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
-        
-            $response = curl_exec($ch);
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+		
+		$response = curl_exec($ch);
             // Se cierra el recurso CURL y se liberan los recursos del sistema
-            curl_close($ch);
-                              if($response==null) {
-             
-echo("datos eliminado incorecto");
-				$this->load->view('Cliente/EliminarCliente.php');
+		curl_close($ch);
+		if($response==null) {
+			
+			echo("datos eliminado incorecto");
+			$this->load->view('Cliente/EliminarCliente.php');
 
-       }else{
+		}else{
 
-echo("datos eliminado correcto");
+			echo("datos eliminado correcto");
 
-               $this->load->view('usuarios/Admin.php');
-            }  
+			$this->load->view('usuarios/Admin.php');
+		}  
 
 
-        }
+	}
 
-		}
+}

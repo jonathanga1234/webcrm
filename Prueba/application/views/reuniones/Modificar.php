@@ -49,24 +49,24 @@
         <form class="form-inline" action="<?php echo site_url('Reunion/Modifcar'); ?>" method="post">
 
 
-                  id: <input name="id"  type="text" value="" required autofocus> 
-               titulo: <input name="titulo"  type="text" value="" > 
-           diayhora: <input type="text" name="diayhora" value="" > 
-           usuario: <input type="text" name="usuario" value="" > 
-           virtual: <input type="text" name="virtual" value="" > 
-           cliente:  <input type="text" name="cliente" value="" > 
-        
+          id: <input name="id"  type="text" value="" required autofocus> 
+          titulo: <input name="titulo"  type="text" value="" > 
+          diayhora: <input type="text" name="diayhora" value="" > 
+          usuario: <input type="text" name="usuario" value="" > 
+          virtual: <input type="text" name="virtual" value="" > 
+          cliente:  <input type="text" name="cliente" value="" > 
+          
 
 
-                <br>
+          <br>
 
-           
-                <br>
+          
+          <br>
 
-            <button type="submit" class="button button-block" />Modificar</button>
-        </form>
-    </div>
-    </div>
+          <button type="submit" class="button button-block" />Modificar</button>
+      </form>
+  </div>
+</div>
 
 </body>
 

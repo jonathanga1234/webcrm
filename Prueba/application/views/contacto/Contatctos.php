@@ -50,24 +50,24 @@
         <form class="form-inline" action="<?php echo site_url('Contacto/saveContacto'); ?>" method="post">
 
 
- 
+           
           cliente:  <input name="cliente"  type="text" value="" required autofocus> 
-           Nombre: <input type="text" name="nombre" value="" required autofocus> 
-           Apellidos:  <input type="text" name="apellidos" value="" required autofocus> 
-           Correo  <input type="text" name="correo" value="" required autofocus>
-            numero <input type="text" name="numero" value="" required autofocus> 
-           puesto:<input type="text" name="puesto" value=""required autofocus> 
+          Nombre: <input type="text" name="nombre" value="" required autofocus> 
+          Apellidos:  <input type="text" name="apellidos" value="" required autofocus> 
+          Correo  <input type="text" name="correo" value="" required autofocus>
+          numero <input type="text" name="numero" value="" required autofocus> 
+          puesto:<input type="text" name="puesto" value=""required autofocus> 
 
-                <br>
+          <br>
 
-              
+          
 
-                <br>
+          <br>
 
-            <button type="submit" class="button button-block" />Crear</button>
-        </form>
-    </div>
-    </div>
+          <button type="submit" class="button button-block" />Crear</button>
+      </form>
+  </div>
+</div>
 
 </body>
 

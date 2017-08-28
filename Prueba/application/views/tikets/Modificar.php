@@ -51,23 +51,23 @@
 
 
           id:  <input name="id"  type="text" value="" required autofocus> 
-            titulo:  <input name="titulo"  type="text" value="" > 
+          titulo:  <input name="titulo"  type="text" value="" > 
           diayhora:  <input type="text" name="diayhora" value="" > 
-           usuario: <input type="text" name="usuario" value="" > 
+          usuario: <input type="text" name="usuario" value="" > 
           virtual:  <input type="text" name="virtual" value="" > 
           cliente:  <input type="text" name="cliente" value="" > 
-        
+          
 
 
-                <br>
+          <br>
 
-           
-                <br>
+          
+          <br>
 
-            <button type="submit" class="button button-block" />Modificartickets</button>
-        </form>
-    </div>
-    </div>
+          <button type="submit" class="button button-block" />Modificartickets</button>
+      </form>
+  </div>
+</div>
 
 </body>
 

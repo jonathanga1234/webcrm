@@ -7,182 +7,182 @@ class Reunion extends CI_Controller {
 
 
 
-public function login()
-		{
-		$this->load->view('login/index.php');
-		}
-	public function index()
-	{
+    public function login()
+    {
+      $this->load->view('login/index.php');
+  }
+  public function index()
+  {
 
-		$this->load->view('usuarios/Admin.php');
-	}
+      $this->load->view('usuarios/Admin.php');
+  }
+///gaurad reunion
+  public function saveReunion()
+  {
 
-public function saveReunion()
-		{
 
+   
+      $titulo = $this->input->post('titulo');
+      $diayhora = $this->input->post('diayhora');
+      
+      $usuario = $this->input->post('usuario');
+      $virtual = $this->input->post('virtual');
+      $cliente = $this->input->post('cliente');
+      $Cliente = array(
 
- 
-		$titulo = $this->input->post('titulo');
-		$diayhora = $this->input->post('diayhora');
-	
-		$usuario = $this->input->post('usuario');
-		$virtual = $this->input->post('virtual');
-		$cliente = $this->input->post('cliente');
-		$Cliente = array(
+       
 
- 
-
-			'titulo' => $titulo,
-			'diayhora' => $diayhora,
-			'usuario' => $usuario,
-		
-			'virtual' => $virtual,
-			'cliente' => $cliente
-		);
+         'titulo' => $titulo,
+         'diayhora' => $diayhora,
+         'usuario' => $usuario,
+         
+         'virtual' => $virtual,
+         'cliente' => $cliente
+         );
 
 
 
       //url contra la que atacamos
-            $ch = curl_init("http://localhost:3000/reuniones");
+      $ch = curl_init("http://localhost:3000/reuniones");
             //a true, obtendremos una respuesta de la url, en otro caso, 
             //true si es correcto, false si no lo es
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             //establecemos el verbo http que queremos utilizar para la petición
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+      curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
             //enviamos el array data
-            curl_setopt($ch, CURLOPT_POSTFIELDS,$Cliente);
+      curl_setopt($ch, CURLOPT_POSTFIELDS,$Cliente);
             //obtenemos la respuesta
-            $response = curl_exec($ch);
+      $response = curl_exec($ch);
             // Se cierra el recurso CURL y se liberan los recursos del sistema
-            curl_close($ch);
-                                               if($response==null) {
-             
-echo("datos creado incorecto");
-                        $this->load->view('reuniones/reuniones.php');
-       }else{
+      curl_close($ch);
+      if($response==null) {
+       
+        echo("datos creado incorecto");
+        $this->load->view('reuniones/reuniones.php');
+    }else{
 
-echo("datos creado correcto");
+        echo("datos creado correcto");
 
-               $this->load->view('usuarios/Admin.php');
-            }  
-
-
-
-
-			}
+        $this->load->view('usuarios/Admin.php');
+    }  
 
 
 
 
+}
 
 
+
+
+
+///modificar 
 public function Modifcar(){
 
      //datos a enviar
 
 	$id = $this->input->post('id');
 
-       	$titulo = $this->input->post('titulo');
+    $titulo = $this->input->post('titulo');
 
 
 
 
 
-				if($titulo==""){
+    if($titulo==""){
 
 
 
-			$titulo=null;
+     $titulo=null;
 
-		}
-
-
-		$diayhora = $this->input->post('diayhora');
+ }
 
 
-				if($diayhora==""){
+ $diayhora = $this->input->post('diayhora');
 
 
-
-			$diayhora=null;
-
-		}
-
-	
-		$usuario = $this->input->post('usuario');
-
-
-				if($usuario==""){
+ if($diayhora==""){
 
 
 
-			$usuario=null;
+     $diayhora=null;
 
-		}
+ }
 
-
-	
-
-
-		$virtual = $this->input->post('virtual');
+ 
+ $usuario = $this->input->post('usuario');
 
 
-					if($virtual==""){
+ if($usuario==""){
 
 
 
-			$virtual=null;
+     $usuario=null;
 
-		}
-		$cliente = $this->input->post('cliente');
-
-
-			if($cliente==""){
+ }
 
 
+ 
 
-			$cliente=null;
 
-		}
+ $virtual = $this->input->post('virtual');
 
+
+ if($virtual==""){
 
 
 
-	$Cliente = array(
+     $virtual=null;
+
+ }
+ $cliente = $this->input->post('cliente');
 
 
-			'titulo' => $titulo,
-			'diayhora' => $diayhora,
-			'usuario' => $usuario,
-		
-			'virtual' => $virtual,
-			'cliente' => $cliente
-		);
+ if($cliente==""){
 
-   
+
+
+     $cliente=null;
+
+ }
+
+
+
+
+ $Cliente = array(
+
+
+     'titulo' => $titulo,
+     'diayhora' => $diayhora,
+     'usuario' => $usuario,
+     
+     'virtual' => $virtual,
+     'cliente' => $cliente
+     );
+
+ 
             //url contra la que atacamos
-            $ch = curl_init("http://localhost:3000/reuniones/".$id);
+ $ch = curl_init("http://localhost:3000/reuniones/".$id);
             //a true, obtendremos una respuesta de la url, en otro caso, 
             //true si es correcto, false si no lo es
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             //establecemos el verbo http que queremos utilizar para la petición
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+ curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
             //enviamos el array data
-            curl_setopt($ch, CURLOPT_POSTFIELDS,http_build_query($Cliente));
+ curl_setopt($ch, CURLOPT_POSTFIELDS,http_build_query($Cliente));
             //obtenemos la respuesta
-            $response = curl_exec($ch);
+ $response = curl_exec($ch);
             // Se cierra el recurso CURL y se liberan los recursos del sistema
-            curl_close($ch);
-                                                      if($response==null) {
-             
-echo("datos modificado incorecto");
-                        $this->load->view('reuniones/Modificar.php');
-       }else{
+ curl_close($ch);
+ if($response==null) {
+   
+    echo("datos modificado incorecto");
+    $this->load->view('reuniones/Modificar.php');
+}else{
 
-echo("datos modificado correcto");
+    echo("datos modificado correcto");
 
-               $this->load->view('usuarios/Admin.php');
-            }  
+    $this->load->view('usuarios/Admin.php');
+}  
 
 
 
@@ -193,35 +193,38 @@ echo("datos modificado correcto");
 
 
 }
-
+///vista elimnar
 
 public function Eliminarreunionesmostra(){
 
 
 
-		$this->load->view('reuniones/Eliminarreunioness.php');
+  $this->load->view('reuniones/Eliminarreunioness.php');
 
 }
+///vista mostar
 
 
 public function Crearreunionesmostra(){
 
 
 
-		$this->load->view('reuniones/reuniones.php');
+  $this->load->view('reuniones/reuniones.php');
 
 }
+
+///vista modificar
 public function Modificarreunionesmostra(){
 
 
 
-		$this->load->view('reuniones/Modificar.php');
+  $this->load->view('reuniones/Modificar.php');
 
 }
 
 
 
-
+///metodo mostar
 
 
 public function mostrar(){
@@ -231,72 +234,69 @@ public function mostrar(){
 
   
             //url contra la que atacamos
-            $ch = curl_init("http://localhost:3000/reuniones");
+    $ch = curl_init("http://localhost:3000/reuniones");
             //a true, obtendremos una respuesta de la url, en otro caso, 
             //true si es correcto, false si no lo es
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             //establecemos el verbo http que queremos utilizar para la petición
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
             //enviamos el array data
             ///curl_setopt($ch, CURLOPT_POSTFIELDS,http_build_query($data));
             //obtenemos la respuesta
-            $response = curl_exec($ch);
+    $response = curl_exec($ch);
             // Se cierra el recurso CURL y se liberan los recursos del sistema
-            curl_close($ch);
-            if(!$response) {
-                return false;
-            }else{
+    curl_close($ch);
+    if(!$response) {
+        return false;
+    }else{
                // var_dump($response);
-            }
-			///$response->result_array();
+    }
+		  $data= $response;
 
-		$json = json_encode($response);
-			$data['usuarios'] = $json;
+    print_r($response);
 
-		///$data['usuarios'] = $usuarios;
-		$this->load->view('reuniones/Mostrar.php', $json);
 }
 
-
-		
-
-		public function EliminarContatctos(){
+///vista eliminar
 
 
-					$id = $this->input->post('id');
-		
-				$Cliente = array(
+public function EliminarContatctos(){
 
 
-			'id' => $id,
-			
-		);
+   $id = $this->input->post('id');
+   
+   $Cliente = array(
+
+
+     'id' => $id,
+     
+     );
 
 
    
-      
+   
             //url contra la que atacamos
-            $ch = curl_init("http://localhost:3000/reuniones/".$id);
+   $ch = curl_init("http://localhost:3000/reuniones/".$id);
             //a true, obtendremos una respuesta de la url, en otro caso, 
             //true si es correcto, false si no lo es
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             //establecemos el verbo http que queremos utilizar para la petición
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
-        
-            $response = curl_exec($ch);
+   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+   
+   $response = curl_exec($ch);
             // Se cierra el recurso CURL y se liberan los recursos del sistema
-            curl_close($ch);
-                                                      if($response==null) {
-             
-echo("datos eliminado incorecto");
-                       $this->load->view('reuniones/Eliminarreunioness.php');
-       }else{
+   curl_close($ch);
+   if($response==null) {
+       
+    echo("datos eliminado incorecto");
+    $this->load->view('reuniones/Eliminarreunioness.php');
+}else{
 
-echo("datos eliminado correcto");
+    echo("datos eliminado correcto");
 
-               $this->load->view('usuarios/Admin.php');
-            }  
+    $this->load->view('usuarios/Admin.php');
+}  
 
-        }
+}
 
-		}
+}

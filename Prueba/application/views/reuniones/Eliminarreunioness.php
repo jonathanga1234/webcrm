@@ -44,26 +44,26 @@
     <div id="container">
         <h1>Eliminar reunion</h1>
         <div id="body">
-       
+         
         </div>
         <form class="form-inline" action="<?php echo site_url('Reunion/EliminarContatctos'); ?>" method="post">
 
 
- 
+           
             id :<input name="id"  type="text" value="" required autofocus> 
-     
+            
 
 
-                <br>
+            <br>
 
-              
+            
 
-                <br>
+            <br>
 
             <button type="submit" class="button button-block" />Crear</button>
         </form>
     </div>
-    </div>
+</div>
 
 </body>
 
