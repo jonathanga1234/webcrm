@@ -42,14 +42,16 @@ def update
 client = Cliente.find(params[:id])
 
 
-    client.nombre = params[:nombre] ? params[:nombre] : client.nombre
+
+
+  client.nombre = params[:nombre] ? params[:nombre] : client.nombre
     client.cedula = params[:cedula] ? params[:cedula] : client.cedula
     client.pagina = params[:pagina] ? params[:pagina] : client.pagina
 
-     client.dirrecion = params[:dirrecion] ? params[:dirrecion] : client.dirrecion
+    client.dirrecion = params[:dirrecion] ? params[:dirrecion] : client.dirrecion
       client.telefono = params[:telefono] ? params[:telefono] : client.telefono
      
-     client.sector = params[:sector] ? params[:sector] : client.sector
+    client.sector = params[:sector] ? params[:sector] : client.sector
 
 
 

@@ -71,10 +71,17 @@ ticket = Ticket.find(params[:id])
  
 
     ticket.titulo  = params[:titulo] ? params[:titulo] : ticket.titulo
+
+ 
+
+
     ticket.detalle   = params[:detalle] ? params[:detalle] : ticket.detalle
     ticket.quien_reporto  = params[:quien_reporto] ? params[:quien_reporto] : ticket.quien_reporto
         ticket.cliente    = params[:cliente ] ? params[:cliente] : ticket.cliente
-            ticket.estado   = params[:estado] ? params [:cliente] : ticket.estado
+
+
+
+            ticket.estado   = params[:estado] ? params[:estado] : ticket.estado
 
 
 

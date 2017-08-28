@@ -43,10 +43,9 @@ contac = Contacto.find(params[:id])
 
 contac.cliente  = params[:cliente] ? params[:cliente] : contac.cliente
     contac.nombre = params[:nombre] ? params[:nombre] : contac.nombre
-    contac.apellidos = params[:apellidos] ? params[:nombre] : contac.apellidos
+    contac.apellidos = params[:apellidos] ? params[:apellidos] : contac.apellidos
         contac.correo  = params[:correo] ? params[:correo] : contac.correo
             contac.numero  = params[:numero] ? params[:numero] : contac.numero
-
              contac.puesto   = params[:puesto] ? params[:puesto] : contac.puesto
 
 
