@@ -20,81 +20,81 @@ class ClientesController < ApplicationController
     client.cedula = params[:cedula]
     client.pagina = params[:pagina]
 
-     client.dirrecion = params[:dirrecion]
-      client.telefono = params[:telefono]
-     
-     client.sector = params[:sector]
+    client.dirrecion = params[:dirrecion]
+    client.telefono = params[:telefono]
+    
+    client.sector = params[:sector]
     
 
-if client.save
-  
+    if client.save
+      
 
-    render(json: client,status: 201 ,location: client)
-  else
+      render(json: client,status: 201 ,location: client)
+    else
 
-  render(json: client.errors,status: 422 )
+      render(json: client.errors,status: 422 )
 
-end
+    end
   end
 
 
-def update
-client = Cliente.find(params[:id])
+  def update
+    client = Cliente.find(params[:id])
 
 
 
 
-  client.nombre = params[:nombre] ? params[:nombre] : client.nombre
+    client.nombre = params[:nombre] ? params[:nombre] : client.nombre
     client.cedula = params[:cedula] ? params[:cedula] : client.cedula
     client.pagina = params[:pagina] ? params[:pagina] : client.pagina
 
     client.dirrecion = params[:dirrecion] ? params[:dirrecion] : client.dirrecion
-      client.telefono = params[:telefono] ? params[:telefono] : client.telefono
-     
+    client.telefono = params[:telefono] ? params[:telefono] : client.telefono
+    
     client.sector = params[:sector] ? params[:sector] : client.sector
 
 
 
-if client.save()
+    if client.save()
 
 
 
-  render(json: client,status: 201 )
-  else
+      render(json: client,status: 201 )
+    else
 
- render(json: client.errors,status: 422 )
-    end
+     render(json: client.errors,status: 422 )
+   end
 
-  end
-  def show
+ end
+ def show
 
 
-client = Cliente.find(params[:id])
-render json: client,status: 200
+  client = Cliente.find(params[:id])
+  render json: client,status: 200
 end
 
 
 
 
- def destroy
+def destroy
 
 
   client = Cliente.find(params[:id])
 
-if client.destroy
+  if client.destroy
 
 
 
- head 204
+   head 204
 
 
-  else
- 
- head 422
+ else
+   
+   head 422
 
 
  end
- end
+end
 
 
 end

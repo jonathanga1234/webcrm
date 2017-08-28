@@ -17,89 +17,89 @@ class ContactosController < ApplicationController
     contac.cliente  = params[:cliente]
     contac.nombre = params[:nombre]
     contac.apellidos = params[:apellidos]
-        contac.correo  = params[:correo]
-            contac.numero  = params[:numero]
+    contac.correo  = params[:correo]
+    contac.numero  = params[:numero]
 
-             contac.puesto   = params[:puesto]
-
-
-   if contac.save
-
-    render(json: contac,status: 201 ,location: contac)
-
-else
-
-  render(json: contac.errors,status: 422 )
+    contac.puesto   = params[:puesto]
 
 
-  end
+    if contac.save
+
+      render(json: contac,status: 201 ,location: contac)
+
+    else
+
+      render(json: contac.errors,status: 422 )
 
 
-  end
-
-
-def update
-contac = Contacto.find(params[:id])
-
-contac.cliente  = params[:cliente] ? params[:cliente] : contac.cliente
-    contac.nombre = params[:nombre] ? params[:nombre] : contac.nombre
-    contac.apellidos = params[:apellidos] ? params[:apellidos] : contac.apellidos
-        contac.correo  = params[:correo] ? params[:correo] : contac.correo
-            contac.numero  = params[:numero] ? params[:numero] : contac.numero
-             contac.puesto   = params[:puesto] ? params[:puesto] : contac.puesto
-
-
-     
- 
-
-
-
-if contac.save()
-
-
-
-  render(json: contac,status: 201 )
-  else
-
- render(json: contac.errors,status: 422 )
     end
 
+
   end
 
 
+  def update
+    contac = Contacto.find(params[:id])
+
+    contac.cliente  = params[:cliente] ? params[:cliente] : contac.cliente
+    contac.nombre = params[:nombre] ? params[:nombre] : contac.nombre
+    contac.apellidos = params[:apellidos] ? params[:apellidos] : contac.apellidos
+    contac.correo  = params[:correo] ? params[:correo] : contac.correo
+    contac.numero  = params[:numero] ? params[:numero] : contac.numero
+    contac.puesto   = params[:puesto] ? params[:puesto] : contac.puesto
+
+
+    
+    
+
+
+
+    if contac.save()
+
+
+
+      render(json: contac,status: 201 )
+    else
+
+     render(json: contac.errors,status: 422 )
+   end
+
+ end
 
 
 
 
-    def show
 
 
-contac = Contacto.find(params[:id])
-render json: contac,status: 200
+ def show
+
+
+  contac = Contacto.find(params[:id])
+  render json: contac,status: 200
 end
 
 
- def destroy
+def destroy
 
 
-contac = Contacto.find(params[:id])
+  contac = Contacto.find(params[:id])
 
-if contac.destroy
-
-
-
- head 204
+  if contac.destroy
 
 
-  else
- 
- head 422
+
+   head 204
+
+
+ else
+   
+   head 422
 
 
  end
- end
+end
 
-  private
+private
     # Use callbacks to share common setup or constraints between actions.
     def set_contacto
       @contacto = Contacto.find(params[:id])
@@ -109,4 +109,4 @@ if contac.destroy
     def contacto_params
       params.require(:contacto).permit(:cliente, :nombre, :apellidos, :correo, :numero, :puesto)
     end
-end
+  end
