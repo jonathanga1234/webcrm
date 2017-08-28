@@ -69,11 +69,11 @@ reunion = Reunione.find(params[:id])
 
 
 
-      reunion.titulo  = params[:titulo] ? params[:nombre] : reunion.titulo
+      reunion.titulo  = params[:titulo] ? params[:titulo] : reunion.titulo
     reunion.diayhora  = params[:diayhora] ? params[:diayhora] : reunion.diayhora
     reunion.usuario  = params[:usuario] ? params[:usuario] : reunion.usuario
         reunion.virtual   = params[:virtual] ? params[:virtual] : reunion.virtual
-            reunion.cliente   = params[:cliente]
+            reunion.cliente   = params[:cliente] ? params[:cliente] : reunion.cliente
 
 
 
