@@ -1,7 +1,7 @@
 class ClientesController < ApplicationController
 
 
-
+#llama a todos los datos
   def index
    
     all_contacto = Cliente.all
@@ -10,7 +10,7 @@ class ClientesController < ApplicationController
 
 
   #sds
-
+#crea los datos
 
   def create
 
@@ -37,7 +37,7 @@ class ClientesController < ApplicationController
     end
   end
 
-
+#actualiza datos
   def update
     client = Cliente.find(params[:id])
 
@@ -66,6 +66,8 @@ class ClientesController < ApplicationController
    end
 
  end
+
+ #muestra uno
  def show
 
 
@@ -75,7 +77,7 @@ end
 
 
 
-
+##eliminadatos
 def destroy
 
 

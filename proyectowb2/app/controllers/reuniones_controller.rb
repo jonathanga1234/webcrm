@@ -1,13 +1,13 @@
 class ReunionesController < ApplicationController
 
 
-
+#obtiene datos
  def index
     # get all clients from the database
     all_Reunione = Reunione.all
     render(json: all_Reunione.to_json)
   end
-
+#crea datos
   def create
 
     reunion = Reunione.new
@@ -37,6 +37,8 @@ end
 
     
   end
+
+  #muestra datos
  def show
 
 
@@ -44,6 +46,8 @@ reunion = Reunione.find(params[:id])
 render json: reunion,status: 200
 end
 
+
+#elimina datos
  def destroy
 
 
@@ -63,7 +67,7 @@ if reunion.destroy
 
  end
  end
-
+#actualiza
 def update
 reunion = Reunione.find(params[:id])
 

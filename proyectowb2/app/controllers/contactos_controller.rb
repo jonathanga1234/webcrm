@@ -3,13 +3,13 @@ class ContactosController < ApplicationController
 
 
 
-
+#llama atodos los datos
   def index
     # get all clients from the database
     all_contacto = Contacto.all
     render(json: all_contacto.to_json)
   end
-
+#crea datos
   def create
 
     contac = Contacto.new
@@ -37,7 +37,7 @@ class ContactosController < ApplicationController
 
   end
 
-
+#actiualiza datos
   def update
     contac = Contacto.find(params[:id])
 
@@ -67,7 +67,7 @@ class ContactosController < ApplicationController
  end
 
 
-
+#muestra datos
 
 
 
@@ -77,7 +77,7 @@ class ContactosController < ApplicationController
   contac = Contacto.find(params[:id])
   render json: contac,status: 200
 end
-
+#elimnar datos
 
 def destroy
 

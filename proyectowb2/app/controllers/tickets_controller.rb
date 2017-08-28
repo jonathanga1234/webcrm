@@ -1,12 +1,12 @@
 class TicketsController < ApplicationController
 
-
+##muestar todos los adatos 
  def index
     # get all clients from the database
     all_Ticket = Ticket.all
     render(json: all_Ticket.to_json)
   end
-
+##crea datos
   def create
 
     ticket = Ticket.new
@@ -41,7 +41,7 @@ end
 
 
 
-
+#elimina datos
 
 
 
@@ -64,7 +64,7 @@ if ticket.destroy
 
  end
  end
-
+#actualiza datos
 def update
 ticket = Ticket.find(params[:id])
 
@@ -97,7 +97,7 @@ if ticket.save()
     end
 
   end
-
+#miestar datos
   
 
   def show

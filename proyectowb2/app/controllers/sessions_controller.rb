@@ -2,6 +2,8 @@ class SessionsController < ApplicationController
 require 'digest/md5'
   # POST /sessions
   # POST /sessions.json
+
+  ##crea seccion
   def create
 
 

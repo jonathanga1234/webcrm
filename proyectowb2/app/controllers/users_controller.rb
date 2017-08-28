@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+  ##muestrra todos los datos
   def index
    
     user = User.all
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
 
 
-
+##crea losdatos
 
   def create
 
@@ -35,7 +35,7 @@ end
     
   end
 
-
+#elimina datos
   
    def destroy
 
@@ -56,7 +56,7 @@ if user.destroy
 
  end
  end
-
+##actualiza datos
 def update
 user = User.find(params[:id])
 
@@ -79,7 +79,7 @@ if user.save()
     end
 
   end
-
+##muestra un datos
 
   def show
 
